@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PoliController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,14 @@ Route::middleware(['auth', 'role:pasien'])->prefix('pasien')->group(function () 
     Route::get('/dashboard', function () {
         return view('pasien.dashboard');
     })->name('pasien.dashboard');
+});
+
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+    Route::resource('polis', PoliController::class);
+
 });
