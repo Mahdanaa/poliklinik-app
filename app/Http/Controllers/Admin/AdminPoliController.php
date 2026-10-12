@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Poli;
 use Illuminate\Http\Request;
 
-class PoliController extends Controller
+class AdminPoliController extends Controller
 {
     public function index()
     {
